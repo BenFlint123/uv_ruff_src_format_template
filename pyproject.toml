@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 license = { file = "LICENSE" }
 authors = [
-    { name = "EY" },
+    { name = "Ben Flint" },
 ]
 keywords = []
 classifiers = [
@@ -27,7 +27,7 @@ classifiers = [
 dependencies = []
 
 [project.urls]
-Repository = "https://github.com/ey-org/mypackage"
+Repository = "https://github.com/BenFlint123/uv_ruff_src_format_template"
 
 # ----------------------------------------------------------------------------
 # Build backend: hatchling
@@ -83,6 +83,7 @@ select = [
     "UP",     # pyupgrade
     "ARG",    # flake8-unused-arguments
     "SIM",    # flake8-simplify
+    "D1",     # missing docstrings on public functions
 ]
 ignore = [
     "E203",   # whitespace before ':' (formatter handles)
@@ -93,10 +94,10 @@ unfixable = []
 
 [tool.ruff.lint.per-file-ignores]
 "__init__.py" = ["F401"]  # re-exports
-"tests/**/*.py" = ["ARG", "SIM"]  # pytest fixtures + asserts
+"tests/**/*.py" = ["ARG", "SIM", "D1"]  # pytest fixtures + asserts
 
 [tool.ruff.lint.mccabe]
-max-complexity = 18
+max-complexity = 10
 
 [tool.ruff.lint.isort]
 known-first-party = ["mypackage"]
@@ -107,6 +108,9 @@ quote-style = "double"
 indent-style = "space"
 skip-magic-trailing-comma = false
 line-ending = "auto"
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
 
 # ----------------------------------------------------------------------------
 # pytest

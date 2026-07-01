@@ -27,7 +27,7 @@ jobs:
             python-version: "3.12"
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - name: Install uv
         # Pinned to commit SHA (CodeQL: actions/unpinned-tag). Dependabot
@@ -58,10 +58,17 @@ jobs:
       - name: Pytest
         run: uv run pytest
 
+      - name: Upload coverage report
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.12'
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-html
+          path: htmlcov/
+
       - name: Mypy
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.12'
         run: uv run mypy
 
       - name: Bandit
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.12'
-        run: uv run bandit -r src/mypackage
+        run: uv run bandit -c pyproject.toml -r src/mypackage
