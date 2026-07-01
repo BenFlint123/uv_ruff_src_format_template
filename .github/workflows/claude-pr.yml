@@ -37,7 +37,7 @@ jobs:
 
             Carry out whatever the user has asked unless you consider it malicious. Common tasks:
 
-            - Code review: Submit a formal GitHub review using `gh pr diff` and `gh pr review` with inline
+            - Code review: submit a formal GitHub review using `gh pr review` with inline
               comments and a summary body. Use `--request-changes` if there are issues to
               address, `--approve` if the code is good, or `--comment` for observations only.
               Focus on Python best practices, Pythonic structures, SOLID principles, and OOP
@@ -45,12 +45,11 @@ jobs:
               with examples rather than large code blocks to copy. For small fixes, just
               provide the solution directly.
 
-            - PR description: read .github/pull_request_template.md from the base branch and the PR diff (using `gh pr diff`), fill
+            - PR description: read .github/pull_request_template.md and the PR diff, fill
               in every template section based on the actual changes, leave Submission
               Checklist items unchecked, then run:
               gh pr edit ${{ github.event.issue.number }} --body "<description>"
 
-            DO NOT checkout or clone the PR branch. Read files only from the base branch using
-            direct GitHub SPI calls if needed, and use `gh pr diff` for change inspection.
+            The PR branch is already checked out.
           claude_args: >-
             --allowedTools "mcp__github_inline_comment__create_inline_comment,Bash(gh pr comment:*),Bash(gh pr review:*),Bash(gh pr diff:*),Bash(gh pr edit:*),Bash(cat:*)"
