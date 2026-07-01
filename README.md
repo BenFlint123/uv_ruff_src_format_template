@@ -5,7 +5,7 @@ A Python library template — `uv` + Ruff + `src/` layout, packaged with
 
 > **Status:** Template scaffold. The package is currently a stub:
 > `src/mypackage/` exposes `__version__` and nothing else. Replace the
-> placeholder name and add your own modules to make this your own.
+> placeholder name and add your own modules to make this your own package for release.
 
 ---
 
