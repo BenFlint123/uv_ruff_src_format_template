@@ -1,6 +1,6 @@
 # mypackage
 
-A Python library template — `uv` + Ruff + `src/` layout, packaged with
+A Python library template that uses `uv` + Ruff + `src/` layout, packaged with
 `hatchling` and ready for CI, pre-commit, and release.
 
 > **Status:** Template scaffold. The package is currently a stub:
