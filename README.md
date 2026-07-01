@@ -1,7 +1,8 @@
 # mypackage
 
-A Python library template using `uv` + Ruff + `src/` layout, packaged with
-`hatchling` and ready for CI, pre-commit, and release. Also contains instructions and template files for github copilot and claude integration.
+A Python library template using `uv` + Ruff + `src/` layout. Packaged with
+`hatchling` and ready for CI, pre-commit, and release. Also contains instructions and
+template files for github copilot and claude integration.
 
 > **Status:** Template scaffold. The package is currently a stub:
 > `src/mypackage/` exposes `__version__` and nothing else. Replace the
